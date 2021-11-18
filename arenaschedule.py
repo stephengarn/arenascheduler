@@ -2,6 +2,7 @@ from openpyxl import Workbook, load_workbook
 import pprint
 import requests
 import json
+import excel2json
 #download the file using the requests library
 
 #commented out because we don't need to download a new schedule everytime during testing
@@ -11,7 +12,7 @@ import json
 url = 'https://cloud.rampinteractive.com/hockeyedmonton/files/Arena%20Reports/ARENA_report.xlsx'
 r = requests.get(url, allow_redirects=True)
 open("ARENA_reports.xlsx", "wb").write(r.content)
-
+excel2json.convert_from_file('ARENA_reports.xlsx')
 
 pp = pprint.PrettyPrinter(indent=4)
 
@@ -28,8 +29,24 @@ sheet_ranges = wb['ARENA_report']
 #front facing application to understand 
 
 # how should we organize the data? We should do the dict like this???
+class arena:
+    def __init__(self, date, arenaCode, startTime, endTime, day, type, area, division, visitorName, homeName, area2HPR, divisionHPR, visitorNameHPR, homeNameHPR):
+        self.date = date
+        self.arenaCode = arenaCode
+        self.startTime = startTime
+        self.endTime = endTime
+        self.day = day
+        self.type = type
+        self.area = area
+        self.division = division
+        self.visitorName = visitorName
+        self.homeName = homeName
+        self.area2HPR = area2HPR
+        self.divisionHPR = divisionHPR
+        self.visitorNameHPR = visitorNameHPR
+        self.homeNameHPR = homeNameHPR
 arenaDict = {}
-for i in range(2, sheet_ranges.max_row):
+'''for i in range(2, sheet_ranges.max_row):
     arenaDict[i] = {
         'date': sheet_ranges["A" + str(i)].value,
         'arenaCode': sheet_ranges["B" + str(i)].value,
@@ -46,6 +63,7 @@ for i in range(2, sheet_ranges.max_row):
         'visitorNameHPR': sheet_ranges["M" + str(i)].value,
         'homeNameHPR': sheet_ranges["N" + str(i)].value
     }
+'''
 
 
 with open('arenaMinorSchedule.json', 'w', encoding='utf-8') as f:
