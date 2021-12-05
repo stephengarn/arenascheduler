@@ -33,7 +33,8 @@ for row in islice(sheet.values, 1, sheet.max_row):
 #j = json.dumps(schedule_list)
 
 # Write to file
-#with open('arenaNewSchedule.json', 'w') as f:
+#with open('arenaNewSche
+#dule.json', 'w') as f:
 #    f.write(j)
 
 with open('arenaNewSchedule.json', 'w', encoding='utf-8') as f:

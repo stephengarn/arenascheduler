@@ -5,16 +5,68 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
-
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <style>
+          #dropdown {
+            padding: 5px;
+          }
+          
+          div {
+            padding: 5px;
+          }
+          #date {
+            color: #2a9d8f;
+            font-size: 24px;
+          }
+        </style>
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="source.js"></script>
     </head>
     <body>
+      <h3>Hockey Edmonton schedule. Select arena and view schedule for selected arena. The same schedule
+        can be found here on this <a href="#">page.</a> </h3> 
+        <h5>This pages intention is to make Hockey Edmonton 
+        schedule more readable and easier for Arena Attendants to find their particular arenas schedule. 
+        </h5>
+      <div id="dropdown">
+        <select>
+          <option value="select">Select Arena</option>
+          <option id="BHA" value="BHA">BHA</option>
+          <option id="CDA" value="CDA">CDA</option>
+          <option id="CBA" value="CBA">CBA</option>
+          <option id="CFA" value="CFA">CFA</option>
+          <option id="COA" value="COA">COA</option>
+          <option id="CRA" value="CRA">CRA</option>
+          <option id="CVA" value="CVA">CVA</option>
+          <option id="CVB" value="CVB">CVB</option>
+          <option id="DNA" value="DNA">DNA</option>
+          <option id="GLA" value="GLA">GLA</option>
+          <option id="GTA" value="GTA">GTA</option>
+          <option id="KEA" value="KEA">KEA</option>
+          <option id="KMA" value="KMA">KMA</option>
+          <option id="KMB" value="KMB">KMB</option>
+          <option id="LOA" value="LOA">LOA</option>
+          <option id="MCA" value="MCA">MCA</option>
+          <option id="MWA" value="MWA">MWA</option>
+          <option id="MWB" value="MWB">MWB</option>
+          <option id="OLA" value="OLA">OLA</option>
+          <option id="RBA" value="RBA">RBA</option>
+          <option id="SSA" value="SSA">SSA</option>
+          <option id="TCA" value="TCA">TCA</option>
+          <option id="TCB" value="TCB">TCB</option>
+          <option id="TCC" value="TCC">TCC</option>
+          <option id="TCD" value="TCD">TCD</option>
+          <option id="TIA" value="TIA">TIA</option>
+          <option id="TME" value="TME">TME</option>
+          <option id="TMW" value="TMW">TMW</option>
+          <option id="WWA" value="WWA">WWA</option>
+        </select>
+      </div>
+    <p id="displaySchedule"></p>
 
-        <!-- Add your site or application content here -->
-        <p>HTML5 Starter Template</p>
 
-        
-    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     </body>
+
 </html>
