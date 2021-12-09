@@ -11,12 +11,27 @@
             padding: 5px;
           }
           
-          div {
-            padding: 5px;
+          #displaySchedule {
+            padding: 10px;
+            width: 95%;
+          }
+          .main {
+            position: relative;
+            left: 20px;
           }
           #date {
             color: #2a9d8f;
             font-size: 24px;
+          }
+          
+          @media only screen and (max-width: 500px) {
+            .main {
+             position: relative;
+             left: 3px;
+            }
+            .head {
+            padding: 3px;
+          }
           }
         </style>
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
@@ -24,11 +39,12 @@
         <script src="source.js"></script>
     </head>
     <body>
+      <div id="conatiner" class="head">
       <h3>Hockey Edmonton schedule. Select arena and view schedule for selected arena. The same schedule
-        can be found here on this <a href="#">page.</a> </h3> 
+        can be found here on this <a href="http://www.hockeyedmonton.ca/content/Arena-Reports">page.</a> </h3> 
         <h5>This pages intention is to make Hockey Edmonton 
         schedule more readable and easier for Arena Attendants to find their particular arenas schedule. 
-        </h5>
+        </h5></div>
       <div id="dropdown">
         <select>
           <option value="select">Select Arena</option>
@@ -63,7 +79,7 @@
           <option id="WWA" value="WWA">WWA</option>
         </select>
       </div>
-    <p id="displaySchedule"></p>
+    <div id="displaySchedule"></p>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>

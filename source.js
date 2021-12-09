@@ -28,37 +28,24 @@ $(document).ready(function(){
                     
                     //build functions to take the copy/paste out of this code
                     
-
+                    
                     $(homeNames).each(function(index2){
-
+                        let pageBuilder = (home,visitor) => {
+                            $("<div id='date' class='main'>" + " date: " + dates[index2].replace("00:00:00","") + " " + "</div>").appendTo("#displaySchedule");
+                            $("<div class='main'>" + " start time: " + startTime[index2] + " " + "</div>").appendTo("#displaySchedule");
+                            $("<div class='main'>" + " end time: " + endTime[index2] + " " + "</div>").appendTo("#displaySchedule");
+                            $("<div class='main'>" + "Visitor team: " + "<b><u>" + visitor + "</b></u>" + "</div>").appendTo("#displaySchedule");
+                            $("<div class='main'>" + "Home team: " +"<b><u>" + home + "</b></u>" + "</div>").appendTo("#displaySchedule");
+                            $("<div class='main'>" + " area: " + area[index2] + " " + "</div>").appendTo("#displaySchedule");
+                            $("<br>").appendTo("#displaySchedule");
+                        
+                    }
                       if(homeNames[index2] === null) {
-                        $("<div id='date'>" + " date: " + dates[index2].replace("00:00:00","") + " " + "</div>").appendTo("#displaySchedule");
-                      $("<div>" + " start time: " + startTime[index2] + " " + "</div>").appendTo("#displaySchedule");
-                      $("<div>" + " end time: " + endTime[index2] + " " + "</div>").appendTo("#displaySchedule");
-                      $("<div>" + " No home team provided. Please refer to area. " + "</div>").appendTo("#displaySchedule");
-                      $("<div>" + " area: " + area[index2] + " " + "</div>").appendTo("#displaySchedule");
-                      
-                      $("<br>").appendTo("#displaySchedule");
+                          pageBuilder(home="No home team provided. Refer to area.", visitor="");
                       } else if(visitorNames[index2] === null) {
-
-                      
-                      $("<div id='date'>" + " date: " + dates[index2].replace("00:00:00","") + " " + "</div>").appendTo("#displaySchedule");
-                      $("<div>" + " start time: " + startTime[index2] + " " + "</div>").appendTo("#displaySchedule");
-                      $("<div>" + " end time: " + endTime[index2] + " " + "</div>").appendTo("#displaySchedule");
-                      $("<div>" + " Practice or no visitor team provided " + "</div>").appendTo("#displaySchedule");
-                      $("<div>" + " home team: " + homeNames[index2] + " " + "</div>").appendTo("#displaySchedule");
-                      $("<div>" + " area: " + area[index2] + " " + "</div>").appendTo("#displaySchedule");
-                      
-                      $("<br>").appendTo("#displaySchedule");
+                          pageBuilder(homeNames[index2], visitor="Practice or no visitor team provided ");
                       } else {
-                        $("<div id='date'>" + " date: " + dates[index2].replace("00:00:00","") + " " + "</div>").appendTo("#displaySchedule");
-                      $("<div>" + " start time: " + startTime[index2] + " " + "</div>").appendTo("#displaySchedule");
-                      $("<div>" + " end time: " + endTime[index2] + " " + "</div>").appendTo("#displaySchedule");
-                      $("<div>" + " visitor team: " + "<b><u>" + visitorNames[index2] + "</b></u>"  + "</div>").appendTo("#displaySchedule");
-                      $("<div>" + " home team: " + "<b><u>" + homeNames[index2] + "</b></u>" + "</div>").appendTo("#displaySchedule");
-                      $("<div>" + " area: " + area[index2] + " " + "</div>").appendTo("#displaySchedule");
-                      
-                      $("<br>").appendTo("#displaySchedule");
+                          pageBuilder(homeNames[index2], visitorNames[index2]);
                       }
                     });
                   }
@@ -69,4 +56,6 @@ $(document).ready(function(){
         });
         
       });
+
+
 

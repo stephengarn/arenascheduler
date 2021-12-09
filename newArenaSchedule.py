@@ -2,8 +2,13 @@ import json
 from collections import OrderedDict
 from itertools import islice
 from openpyxl import load_workbook
+import requests
 
 # Open the workbook and select a worksheet
+url = 'https://cloud.rampinteractive.com/hockeyedmonton/files/Arena%20Reports/ARENA_report.xlsx'
+r = requests.get(url, allow_redirects=True)
+open("ARENA_reports.xlsx", "wb").write(r.content)
+
 wb = load_workbook('ARENA_reports.xlsx')
 sheet = wb['ARENA_report']
 
