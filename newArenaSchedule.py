@@ -4,11 +4,12 @@ from itertools import islice
 from openpyxl import load_workbook
 import requests
 
-# Open the workbook and select a worksheet
+# download excel spreadsheet 
 url = 'https://cloud.rampinteractive.com/hockeyedmonton/files/Arena%20Reports/ARENA_report.xlsx'
 r = requests.get(url, allow_redirects=True)
 open("ARENA_reports.xlsx", "wb").write(r.content)
 
+# Open the workbook and select a worksheet
 wb = load_workbook('ARENA_reports.xlsx')
 sheet = wb['ARENA_report']
 
@@ -33,14 +34,6 @@ for row in islice(sheet.values, 1, sheet.max_row):
     schedule['visitorNameHPR'] = row[12]
     schedule['homeNameHPR'] = row[13]
     schedule_list.append(schedule)
-
-# Serialize the list of dicts to JSON
-#j = json.dumps(schedule_list)
-
-# Write to file
-#with open('arenaNewSche
-#dule.json', 'w') as f:
-#    f.write(j)
 
 with open('arenaNewSchedule.json', 'w', encoding='utf-8') as f:
     json.dump(schedule_list, f, ensure_ascii=False, indent=4, default=str)
